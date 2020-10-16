@@ -48,7 +48,10 @@ def redraw():
     for i in range(len(path) - 1):
         x1, y1 = shrink(path[i])
         x2, y2 = shrink(path[i + 1])
-        canvas.create_line(y1,x1,y2,x2,width=2.0,fill='red')
+        if i % 2 == 0:
+            canvas.create_line(y1,x1,y2,x2,width=2.0,fill='red')
+        else:
+            canvas.create_line(y1,x1,y2,x2,width=2.0,fill='blue')
 
     if source_point:
         x,y = shrink(source_point)
@@ -77,11 +80,21 @@ def on_click(event):
         try:
             path, visited_boxes = p2_pathfinder.find_path(source_point, destination_point, mesh)
 
+            # path, visited_boxes = p2_pathfinder.find_path((314, 608), (278, 518), mesh)
+
+            # path, visited_boxes = p2_pathfinder.find_path( (468, 398), (586, 320), mesh)
+            # path, visited_boxes = p2_pathfinder.find_path((504, 856), (262, 658), mesh)
+
+            # path, visited_boxes = p2_pathfinder.find_path((328, 368), (474, 386), mesh)
+            # path, visited_boxes = p2_pathfinder.find_path( (326, 96), (92, 204), mesh)
+            # path, visited_boxes = p2_pathfinder.find_path((436, 250), (254, 470), mesh)
+
         except:
             destination_point = None
             traceback.print_exc()
 
     redraw()
+
 
 canvas.bind('<Button-1>', on_click)
 
