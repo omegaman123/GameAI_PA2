@@ -78,12 +78,13 @@ def on_click(event):
     else:
         destination_point = event.y*SUBSAMPLE, event.x*SUBSAMPLE
         try:
-            path, visited_boxes = p2_pathfinder.find_path(source_point, destination_point, mesh)
+            # path, visited_boxes = p2_pathfinder.find_path(source_point, destination_point, mesh)
 
             # path, visited_boxes = p2_pathfinder.find_path((314, 608), (278, 518), mesh)
 
             # path, visited_boxes = p2_pathfinder.find_path( (468, 398), (586, 320), mesh)
-            # path, visited_boxes = p2_pathfinder.find_path((504, 856), (262, 658), mesh)
+            path, visited_boxes = p2_pathfinder.find_path((584, 650), (322, 354), mesh)
+            # path, visited_boxes = p2_pathfinder.find_path((636, 120), (224, 232), mesh)
 
             # path, visited_boxes = p2_pathfinder.find_path((328, 368), (474, 386), mesh)
             # path, visited_boxes = p2_pathfinder.find_path( (326, 96), (92, 204), mesh)
